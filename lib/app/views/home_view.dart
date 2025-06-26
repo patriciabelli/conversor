@@ -31,36 +31,55 @@ class  _HomeViewState extends State<HomeView> {
                 
                 width: MediaQuery.of(context).size.width,
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Expanded(
                       flex: 1,
                       
-                      child: DropdownButton<String>(
-                        value: selectedCurrency,
-                        onChanged:(value) {
-                          setState(() {
-                            selectedCurrency = value!;
-                          });
-                        },
-                        items: [
-                          DropdownMenuItem(value: 'USD',child: Text('Dolar')),
-                          DropdownMenuItem(value: 'BTC',child: Text('Bitcoin')),
-                      ], 
-                    ),
-                    ),
-                    const SizedBox(width: 10),
+                      child: SizedBox(
+                        height: 56,
+                        child: DropdownButton<String>(
+                          isExpanded: true,
+                          underline: Container(
+                            height: 1,
+                            color: Colors.amber,
+                          ),
+                          value: selectedCurrency,
+                          onChanged:(value) {
+                            setState(() {
+                              selectedCurrency = value!;
+                            });
+                          },
+                          items: [
+                            DropdownMenuItem(value: 'USD',child: Text('Dolar')),
+                            DropdownMenuItem(value: 'BTC',child: Text('Bitcoin')),
+                        ], 
+                                            ),
+                   ),
+                        ),
+                   const SizedBox(width: 10),
                     const Expanded(
                       flex: 2,
-                      child: TextField(decoration: InputDecoration())),
+                      child: TextField(decoration: InputDecoration(
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(color: Colors.amber)
+                          ),
+                          focusedBorder: UnderlineInputBorder(
+                            borderSide: BorderSide(color: Colors.amber)
+                          )
+                      )
+                      )
+                      ),
                   ],
                 ),
               ),
               SizedBox(height: 50),
               ElevatedButton(
-                onPressed: () {
-                  // Ação ao clicar no botão
-                  // print("Botão pressionado!");
-                },
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.amber,
+                  foregroundColor: Colors.black, 
+                ),
                 child: const Text("CONVERTER"),
               ),
             ],
