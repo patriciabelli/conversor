@@ -11,7 +11,7 @@ class CurrencyModel {
       CurrencyModel(
         name: 'Real',
         real: 1.0,
-        dolar: 0.19,
+        dolar: 0.18,
         euro: 0.17,
         bitcoin: 0.0000031,
       ),
