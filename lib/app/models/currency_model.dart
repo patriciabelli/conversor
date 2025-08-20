@@ -7,6 +7,7 @@ class CurrencyModel {
 
   CurrencyModel({required this.name, required this.real, required this.dolar, required this.euro, required this.bitcoin});
     static List<CurrencyModel> getCurrency() {
+
     return [
       CurrencyModel(
         name: 'Real',
@@ -38,4 +39,17 @@ class CurrencyModel {
       ),
     ];
   }
+  @override
+  bool operator ==(Object other) =>
+  identical(this, other) ||
+  other is CurrencyModel &&
+  runtimeType == other.runtimeType &&
+  name == other.name;
+
+  @override
+  int get hashCode => name.hashCode;
+
+  @override
+  String toString() => name;
+ 
 }
